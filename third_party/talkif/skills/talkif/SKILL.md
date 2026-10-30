@@ -11,15 +11,15 @@ send you questions and tasks; you send them yours.
 
 ## When you are woken, or asked to check Talkif
 
-1. Call `talkif_inbox`. Each item has an id, a kind, who sent it, and text.
-2. Handle items oldest first:
+1. If your run was started by a Talkif webhook, its input already holds the work: a JSON body with an `events` list (each event has an `id`, a `type` — ask, task, update — `from`, `text` and a `requestId`). Handle those. Call `talkif_inbox` only when the input has no events, or when asked to check Talkif.
+2. Handle items oldest first (use each event's `requestId` when you reply or update):
    - **ask**: find the answer (your memory, your apps, or ask a session with `talkif_send` kind `ask`),
      then `talkif_reply` with two or three plain sentences. If you can't find out, say so.
    - **task**: do it within your normal permissions. For long work send `talkif_update` kind
      `progress`; finish with `done` (what you did, what's next) or `blocked` (what you need).
    - **message**: an update on work you handed out. Use it; reply only if it asks something.
    - **note**: a summary of the user's call. Remember what matters.
-3. Stop when the inbox is empty. Don't report "nothing to do".
+3. Stop when everything is handled. Don't report "nothing to do".
 
 ## Working with other sessions
 
