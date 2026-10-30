@@ -36,6 +36,10 @@ Auth is OAuth 2.1 with PKCE and Dynamic Client Registration: the client register
 
 A connected app rings only the person who allowed it, can't approve anything on anyone's behalf, and in an organization reaches what that person's role allows. Talkif's Connectors must be turned on for the account (Developer → Integrations).
 
+## Skill
+
+The plugin ships a `talkif` skill: answering the Talkif inbox, handing work to other sessions, and when (rarely) to ring the user.
+
 ## Requirements
 
 A Talkif account with Connectors turned on. For ringing: the Talkif app on your phone.

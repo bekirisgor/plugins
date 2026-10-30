@@ -32,5 +32,6 @@
     "phone",
     "mcp"
   ],
-  "mcpServers": "./mcp.json"
+  "mcpServers": "./mcp.json",
+  "skills": "./skills/"
 }
